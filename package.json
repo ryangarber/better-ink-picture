@@ -1,0 +1,73 @@
+{
+  "name": "better-ink-picture",
+  "version": "0.1.0",
+  "description": "Fast, off-thread terminal images for Ink: Kitty graphics via Unicode placeholders, with a file-link fallback.",
+  "keywords": [
+    "ink",
+    "image",
+    "terminal",
+    "kitty",
+    "ghostty",
+    "react"
+  ],
+  "author": "Ryan Garber",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./worker": {
+      "types": "./dist/worker.d.mts",
+      "default": "./dist/worker.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run .",
+    "build": "tsdown"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24 <27",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.18.0",
+  "peerDependencies": {
+    "ink": ">=8",
+    "react": ">=19",
+    "sharp": ">=0.33"
+  },
+  "peerDependenciesMeta": {
+    "sharp": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "jpeg-js": "^0.4.4",
+    "omggif": "^1.0.10"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.5",
+    "@ryangarber/utils": "^0.1.6",
+    "@types/node": "^26.6.6",
+    "@types/omggif": "^1.0.5",
+    "@types/react": "^19.3.0",
+    "ink": "^8.0.0",
+    "knip": "^6.44.1",
+    "react": "^19.3.1",
+    "sharp": "^0.35.5",
+    "tsdown": "^0.23.5",
+    "typescript": "7.1.0-beta",
+    "vitest": "^5.1.0"
+  }
+}
